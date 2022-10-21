@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 
 import org.modelos.Aluno;
+import org.modelos.Responsavel;
 
 public class Aluno_in {
     public Aluno createAluno(){
@@ -40,10 +41,7 @@ public class Aluno_in {
         System.out.print("Obs.: ");
 		String observacao = c.nextLine();
 		aluno.setObservacao(observacao);
-        
-        //Turmas
-        //Frequencia
-        
+		
         return aluno;
 	}
 

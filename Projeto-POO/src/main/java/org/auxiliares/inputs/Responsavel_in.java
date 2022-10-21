@@ -1,10 +1,11 @@
 package org.auxiliares.inputs;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
-
+import org.modelos.Aluno;
 import org.modelos.Responsavel;
 
 public class Responsavel_in {
@@ -42,6 +43,9 @@ public class Responsavel_in {
 		for ( Responsavel responsavel : (List<Responsavel>) result) {
 		System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
 		}
+	}
+
+	public void addAluno(Aluno aluno) {
 	}
 
 }

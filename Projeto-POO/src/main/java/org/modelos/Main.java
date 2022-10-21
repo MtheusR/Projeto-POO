@@ -14,7 +14,6 @@ import org.auxiliares.dao.ProfessoraDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -42,15 +41,20 @@ public class Main {
 						case "A":						
 							Aluno_in aluno_in = new Aluno_in();
 
-							AlunoDAO daoA = new AlunoDAO(aluno_in.createAluno(), session);
-							
+							AlunoDAO daoA = new AlunoDAO(aluno_in.createAluno(), session); 
+
 							daoA.create();
 							break;
+
+							
 
 						case "R":
 							Responsavel_in responsavel_in = new Responsavel_in();
 
 							ResponsavelDAO daoR = new ResponsavelDAO(responsavel_in.createResponsavel(), session);
+
+							Aluno aluno = session.find(Aluno.class, 1L);
+							responsavel_in.addAluno(aluno);
 
 							daoR.create();
 							break;
@@ -68,7 +72,6 @@ public class Main {
 					}
 					break;
 	
-					//Colocar tudo isso aqui dentro das classes DAO e _in
 				case "R": //READ - R
 					menuCreate();
 					System.out.print("Escolha uma das opções do nosso menu: ");
@@ -98,10 +101,17 @@ public class Main {
 					break;
 
 				case "F": //FIND - F
-					// pessoa.findPessoa(session);
+						Scanner f = new Scanner(System.in);
+						System.out.print("Digite o ID de quem você deseja pesquisar:");
+						Long idfind = f.nextLong();
+
+						Responsavel responsavel = session.find(Responsavel.class, idfind);
+						System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
+
 					break;
+					
 	
-				default:
+					default:
 					break;
 			}
 

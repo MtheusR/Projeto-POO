@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.modelos.Aluno;
 
 public class AlunoDAO {
-    //Responsavel responsavel;
+
     Aluno aluno;
     Session session;
 
