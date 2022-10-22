@@ -9,10 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import org.auxiliares.dao.AlunoDAO;
-import org.auxiliares.inputs.Aluno_in;
-import org.auxiliares.inputs.Responsavel_in;
-
 @Entity
 public class Responsavel extends Pessoa{
 
@@ -30,26 +26,25 @@ public class Responsavel extends Pessoa{
 
     }
 
-    public List<Aluno> getAluno() {
-        return aluno;
-    }
-    public void setAluno(List<Aluno> aluno) {
-        this.aluno = aluno;
-    }
-
     public String getEndereco(){
         return endereco;
     }
     public void setEndereco(String endereco){
         this.endereco = endereco;
     }
+    
+    public List<Aluno> getAluno() {
+        return aluno;
+    }
+    public void setAluno(List<Aluno> responsavel) {
+        this.aluno = responsavel;
+    }
 
-    protected void addAluno(Aluno a) {
+    public void addAluno(Aluno r) {
 		if (aluno == null) {
 			aluno = new ArrayList<Aluno>();
 		}
-
-		this.aluno.add(a);
+		aluno.add(r);
 	}
 
 }

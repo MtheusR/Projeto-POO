@@ -6,9 +6,10 @@ import java.util.Scanner;
 import org.hibernate.Session;
 
 import org.modelos.Professora;
+import org.modelos.Turma;
 
 public class Professora_in {
-    public Professora createProfessora(){
+    public Professora createProfessora(Session session){
 		Professora professora = new Professora();
 
 		Scanner c = new Scanner(System.in); 
@@ -33,7 +34,11 @@ public class Professora_in {
 		String endereco = c.nextLine();
 		professora.setEndereco(endereco);
 
-        //<Turma> rsrs
+		Scanner g = new Scanner(System.in);
+		System.out.print("ID da Turma: ");
+		Long idFindAdd = g.nextLong();
+		Turma turma = session.find(Turma.class, idFindAdd);
+		professora.addTurma(turma);
 
         return professora;
 	}

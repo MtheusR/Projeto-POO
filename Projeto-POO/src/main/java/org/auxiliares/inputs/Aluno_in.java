@@ -1,15 +1,20 @@
 package org.auxiliares.inputs;
 
 import java.util.Scanner;
-import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import java.util.*;
 
 import org.hibernate.Session;
 
+
 import org.modelos.Aluno;
 import org.modelos.Responsavel;
+import org.modelos.Turma;
 
 public class Aluno_in {
-    public Aluno createAluno(){
+    public Aluno createAluno(EntityManager session){
 		Aluno aluno = new Aluno();
 
 		Scanner c = new Scanner(System.in); 
@@ -41,6 +46,20 @@ public class Aluno_in {
         System.out.print("Obs.: ");
 		String observacao = c.nextLine();
 		aluno.setObservacao(observacao);
+
+		Scanner g = new Scanner(System.in);
+		System.out.print("ID do Responsavel:");
+		Long idFindAdd = g.nextLong();
+		Responsavel responsavel = session.find(Responsavel.class, idFindAdd);
+		responsavel.addAluno(aluno);
+
+		Scanner t = new Scanner(System.in);
+		System.out.print("ID do Turma:");
+		idFindAdd = t.nextLong();
+		Turma turma = session.find(Turma.class, idFindAdd);
+		turma.addAluno(aluno);
+
+		//CREAT TURMA    
 		
         return aluno;
 	}

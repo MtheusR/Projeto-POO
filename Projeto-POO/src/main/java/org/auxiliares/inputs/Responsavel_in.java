@@ -1,15 +1,21 @@
 package org.auxiliares.inputs;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import org.hibernate.Session;
-import org.modelos.Aluno;
+
+/*import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import org.hibernate.SessionFactory;
+import org.modelos.Aluno;*/
+
 import org.modelos.Responsavel;
 
 public class Responsavel_in {
-    public Responsavel createResponsavel(){
+
+
+	public Responsavel createResponsavel(Session session){
 		Responsavel responsavel = new Responsavel();
 
 		Scanner c = new Scanner(System.in); 
@@ -44,8 +50,4 @@ public class Responsavel_in {
 		System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
 		}
 	}
-
-	public void addAluno(Aluno aluno) {
-	}
-
 }

@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.auxiliares.dao.AlunoDAO;
 import org.auxiliares.inputs.Aluno_in;
-
 import org.auxiliares.dao.ResponsavelDAO;
+import org.auxiliares.dao.TurmaDAO;
 import org.auxiliares.inputs.Responsavel_in;
-
+import org.auxiliares.inputs.Turma_in;
 import org.auxiliares.inputs.Professora_in;
 import org.auxiliares.dao.ProfessoraDAO;
 
@@ -41,20 +41,15 @@ public class Main {
 						case "A":						
 							Aluno_in aluno_in = new Aluno_in();
 
-							AlunoDAO daoA = new AlunoDAO(aluno_in.createAluno(), session); 
+							AlunoDAO daoA = new AlunoDAO(aluno_in.createAluno(session), session); 
 
 							daoA.create();
 							break;
 
-							
-
 						case "R":
 							Responsavel_in responsavel_in = new Responsavel_in();
 
-							ResponsavelDAO daoR = new ResponsavelDAO(responsavel_in.createResponsavel(), session);
-
-							Aluno aluno = session.find(Aluno.class, 1L);
-							responsavel_in.addAluno(aluno);
+							ResponsavelDAO daoR = new ResponsavelDAO(responsavel_in.createResponsavel(session), session);
 
 							daoR.create();
 							break;
@@ -62,13 +57,25 @@ public class Main {
 						case "P":
 							Professora_in professora_in = new Professora_in();
 
-							ProfessoraDAO daoP = new ProfessoraDAO(professora_in.createProfessora(), session);
+							ProfessoraDAO daoP = new ProfessoraDAO(professora_in.createProfessora(session), session);
 
 							daoP.create();
 							break;
-					
-						default:
+
+						case "T":
+							Turma_in turma_in = new Turma_in();
+
+							TurmaDAO daoT = new TurmaDAO(turma_in.createTurma(session), session);
+
+							daoT.create();
 							break;
+
+						case "F":
+							break;
+
+
+						
+						default:
 					}
 					break;
 	
@@ -107,14 +114,10 @@ public class Main {
 
 						Responsavel responsavel = session.find(Responsavel.class, idfind);
 						System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
-
 					break;
-					
-	
 					default:
 					break;
 			}
-
 		}
 		while (!key.equals("0"));
 		session.close();
@@ -128,7 +131,7 @@ public class Main {
 	}
 	public static void menuCreate(){
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
-		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora");
+		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora\n T - urma");
 	}
 
 	public static void limpaConsole() throws InterruptedException, IOException{
