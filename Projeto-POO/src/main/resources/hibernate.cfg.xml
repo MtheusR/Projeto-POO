@@ -32,6 +32,8 @@
         <mapping class="org.modelos.Aluno"/>
         <mapping class="org.modelos.Professora"/>
         <mapping class="org.modelos.Turma"/>
+        <mapping class="org.modelos.Frequencia"/>
+
 
     </session-factory>
 </hibernate-configuration>

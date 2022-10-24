@@ -3,7 +3,9 @@ package org.modelos;
 import java.io.IOException;
 
 import org.auxiliares.dao.AlunoDAO;
+import org.auxiliares.dao.FrequenciaDAO;
 import org.auxiliares.inputs.Aluno_in;
+import org.auxiliares.inputs.Frequencia_in;
 import org.auxiliares.dao.ResponsavelDAO;
 import org.auxiliares.dao.TurmaDAO;
 import org.auxiliares.inputs.Responsavel_in;
@@ -71,8 +73,13 @@ public class Main {
 							break;
 
 						case "F":
+							Frequencia_in frequencia_in = new Frequencia_in();
+							
+							FrequenciaDAO daoF = new FrequenciaDAO(frequencia_in.createFrequencia(session), session);
+							
+							daoF.create();
+							
 							break;
-
 
 						
 						default:
