@@ -1,13 +1,13 @@
 package org.modelos;
 
-//import java.util.*;
+import java.util.*;
 
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-/*import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;*/
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno extends Pessoa {
@@ -20,9 +20,9 @@ public class Aluno extends Pessoa {
     protected String nivelEscolar;
     protected String observacao;
 
-    /*@OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "aluno_responsavel")	
-    private List<Responsavel> responsavel = new ArrayList<Responsavel>();*/
+    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "aluno_frequencia")	
+    private List<Frequencia> frequencia = new ArrayList<Frequencia>();
 
     public Aluno() {
 
@@ -58,17 +58,17 @@ public class Aluno extends Pessoa {
         this.observacao = observacao;
     }
     
-    /*public List<Responsavel> getResponsavel() {
-        return responsavel;
+    public List<Frequencia> getFrequencia() {
+        return frequencia;
     }
-    public void setResponsavel(List<Responsavel> responsavel) {
-        this.responsavel = responsavel;
+    public void setFrequencia(List<Frequencia> aluno) {
+        this.frequencia = aluno;
     }
-    public void addResponsavel(Responsavel r) {
-		if (responsavel == null) {
-			responsavel = new ArrayList<Responsavel>();
+    public void addFrequencia(Frequencia a){
+		if (frequencia == null) {
+			frequencia = new ArrayList<Frequencia>();
 		}
-		responsavel.add(r);
-	}*/
+		frequencia.add(a);
+	}
 
 }

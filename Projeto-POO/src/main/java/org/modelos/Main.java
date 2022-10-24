@@ -16,7 +16,10 @@ import org.auxiliares.dao.ProfessoraDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.util.*;
 import java.util.Scanner;
+
+import javax.management.Query;
 
 public class Main {
 	public static void main(String args[]) throws InterruptedException, IOException {
@@ -27,7 +30,7 @@ public class Main {
 		
 		do {
 			limpaConsole();
-			menu();
+			menuCrude();
 			Scanner k = new Scanner(System.in); 
 			System.out.print("Escolha uma das opções do nosso menu: ");
 			key = k.nextLine().toUpperCase();
@@ -132,13 +135,13 @@ public class Main {
 	}
 
 
-	public static void menu(){
+	public static void menuCrude(){
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
 		System.out.println("\sC - reate\n R - ead\n U - pdate\n D - elete\n F - ind");
 	}
 	public static void menuCreate(){
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
-		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora\n T - urma");
+		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora\n T - urma\n F - requencia");
 	}
 
 	public static void limpaConsole() throws InterruptedException, IOException{

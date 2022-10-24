@@ -58,19 +58,5 @@ public class Turma {
 		}
 		aluno.add(a);
 	}
-
-    /*public List<Professora> getProfessora() {
-        return professora;
-    }
-    public void setProfessora(List<Professora> professora) {
-        this.professora = professora;
-    }
-
-    public void addProfessora(Professora p) {
-		if (professora == null) {
-			professora = new ArrayList<Professora>();
-		}
-		professora.add(p);
-	}*/
     
 }

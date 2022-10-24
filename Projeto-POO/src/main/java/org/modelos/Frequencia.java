@@ -19,10 +19,6 @@ public class Frequencia{
     protected Calendar data;
     protected Boolean presenca;
 
-    @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-	@JoinColumn(name = "responsavel_aluno")	
-	private List<Aluno> aluno = new ArrayList<Aluno>();
-
     public Frequencia() {
 
     }

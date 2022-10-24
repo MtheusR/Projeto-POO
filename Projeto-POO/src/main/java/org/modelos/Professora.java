@@ -18,7 +18,6 @@ public class Professora extends Pessoa{
 
     protected String endereco;
 
-
     @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "turma_Professora")	
     private List<Turma> turma = new ArrayList<Turma>();

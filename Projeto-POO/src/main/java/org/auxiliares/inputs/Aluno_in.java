@@ -70,6 +70,5 @@ public class Aluno_in {
 		for ( Aluno aluno : (List<Aluno>) result ) {
 		System.out.println( "\n" + aluno.getId() + " - " + aluno.getNome() + " - " + aluno.getCpf() + " - " + aluno.getDataNascimento() + " - " + aluno.getContato() + " - " + aluno.getTipoPag() + " - " + aluno.getNivelEscolar() + " - " + aluno.getObservacao());
 		}
-	}
-	
+	}	
 }

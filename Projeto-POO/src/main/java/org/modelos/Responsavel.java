@@ -33,6 +33,8 @@ public class Responsavel extends Pessoa{
         this.endereco = endereco;
     }
     
+
+    
     public List<Aluno> getAluno() {
         return aluno;
     }
