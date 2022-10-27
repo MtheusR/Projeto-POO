@@ -2,12 +2,11 @@ package org.modelos;
 
 import java.util.*;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
+
 
 @Entity
 public class Frequencia{
@@ -23,7 +22,6 @@ public class Frequencia{
 
     }
 
-
     public Calendar getData(){
         return data;
     }
@@ -38,6 +36,10 @@ public class Frequencia{
     public void setPresenca(Boolean presenca){
         this.presenca = presenca;
     }
+
+
+
+
 
 }
 

@@ -8,10 +8,8 @@ public class FrequenciaDAO {
     Session session;
 
     public FrequenciaDAO(Frequencia frequencia, Session session) {
-
         this.frequencia = frequencia;
         this.session = session;
-
     }
     
     public void create(){

@@ -16,10 +16,7 @@ import org.auxiliares.dao.ProfessoraDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import java.util.*;
 import java.util.Scanner;
-
-import javax.management.Query;
 
 public class Main {
 	public static void main(String args[]) throws InterruptedException, IOException {
@@ -38,7 +35,7 @@ public class Main {
 			switch (key) {
 				
 				case "C": //CREATE - C
-					menuCreate();
+					menuClasses();
 					System.out.print("Escolha uma das opções do nosso menu: ");
 					key = k.nextLine().toUpperCase();
 
@@ -83,14 +80,12 @@ public class Main {
 							daoF.create();
 							
 							break;
-
-						
 						default:
 					}
 					break;
 	
 				case "R": //READ - R
-					menuCreate();
+					menuClasses();
 					System.out.print("Escolha uma das opções do nosso menu: ");
 					key = k.nextLine().toUpperCase();
 
@@ -111,10 +106,61 @@ public class Main {
 					break;
 	
 				case "U": //UPDATE - U
-					// pessoa.updatePessoa(session);
-					break;
+					menuClasses();
+						System.out.print("Escolha uma das opções do nosso menu: ");
+						key = k.nextLine().toUpperCase();
+
+						switch (key) {
+							case "A":
+								Aluno_in.updateAluno(session);
+								break;
+
+							case "R":
+								
+								break;
+								
+							case "P":
+								
+								break;
+
+							case "T":
+								
+								break;
+
+							case "F":
+								
+								break;
+							default:
+						}
+						break;
 	
 				case "D": //DELETE - D
+					menuClasses();
+					System.out.print("Escolha uma das opções do nosso menu: ");
+					key = k.nextLine().toUpperCase();
+
+					switch (key) {
+						case "A":
+							Aluno_in.deleteAluno(session);
+							break;
+
+						case "R":
+							Responsavel_in.deleteResponsavel(session);
+							break;
+							
+						case "P":
+							Professora_in.deleteProfessora(session);
+							break;
+
+						case "T":
+							Turma_in.deleteTurma(session);	
+							break;
+
+						case "F":
+							Frequencia_in.deleteFrequencia(session);
+							break;
+						default:
+					}
 					break;
 
 				case "F": //FIND - F
@@ -139,7 +185,8 @@ public class Main {
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
 		System.out.println("\sC - reate\n R - ead\n U - pdate\n D - elete\n F - ind");
 	}
-	public static void menuCreate(){
+
+	public static void menuClasses(){
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
 		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora\n T - urma\n F - requencia");
 	}

@@ -11,13 +11,11 @@ public class ProfessoraDAO {
 
         this.professora = professora;
         this.session = session;
-
     }
     
     public void create(){
         this.session.beginTransaction();
         session.save( this.professora );
         session.getTransaction().commit();
-
     }
 }

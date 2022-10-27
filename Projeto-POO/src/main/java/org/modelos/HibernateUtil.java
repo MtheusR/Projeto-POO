@@ -10,8 +10,6 @@ public class HibernateUtil {
     public synchronized SessionFactory getSessionFactory() {
         if ( sessionFactory == null ) {
 
-            // exception handling omitted for brevity
-
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .configure("hibernate.cfg.xml")
                     .build();

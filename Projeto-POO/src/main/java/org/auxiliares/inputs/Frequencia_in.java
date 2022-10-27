@@ -4,8 +4,9 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
-import org.hibernate.Session;
+import javax.persistence.Query;
 
+import org.hibernate.Session;
 import org.modelos.Aluno;
 import org.modelos.Frequencia;
 
@@ -27,7 +28,21 @@ public class Frequencia_in {
 		Long idFindAdd = g.nextLong();
 		Aluno aluno = session.find(Aluno.class, idFindAdd);
 		aluno.addFrequencia(frequencia);
-
         return frequencia;
+	}
+
+	public static void deleteFrequencia(Session session) {
+		System.out.println("\n--- DELETE ---");
+		session.beginTransaction();
+
+		Scanner f = new Scanner(System.in);
+		Query query = session.createQuery( "DELETE FROM Frequencia a WHERE a.id = :id" );
+		System.out.print("Digite o ID do Aluno a ser Deletado:");
+		Long idfind = f.nextLong();
+		Frequencia frequencia = session.find(Frequencia.class, idfind);
+		//aluno.setFrequencia(null);
+		query.setParameter("id", idfind);
+		query.executeUpdate();
+		session.getTransaction().commit();
 	}
 }

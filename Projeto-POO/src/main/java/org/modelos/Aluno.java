@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
+
+import org.hibernate.property.access.spi.SetterFieldImpl;
 
 @Entity
 public class Aluno extends Pessoa {
@@ -70,5 +73,4 @@ public class Aluno extends Pessoa {
 		}
 		frequencia.add(a);
 	}
-
-}
+}  

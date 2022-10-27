@@ -3,16 +3,14 @@ package org.modelos;
 import java.util.*;
 
 import javax.persistence.CascadeType;
-//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-/*import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;*/
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 
-//import java.util.*;
+import org.hibernate.Session;
 
 @Entity
 public class Turma {
@@ -58,5 +56,5 @@ public class Turma {
 		}
 		aluno.add(a);
 	}
-    
+
 }

@@ -3,12 +3,9 @@ package org.auxiliares.inputs;
 import java.util.List;
 import java.util.Scanner;
 
-import org.hibernate.Session;
+import javax.persistence.Query;
 
-/*import java.util.ArrayList;
-import javax.persistence.EntityManager;
-import org.hibernate.SessionFactory;
-import org.modelos.Aluno;*/
+import org.hibernate.Session;
 
 import org.modelos.Responsavel;
 
@@ -50,4 +47,19 @@ public class Responsavel_in {
 		System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
 		}
 	}
+
+	public static void deleteResponsavel(Session session) {
+		System.out.println("\n--- DELETE ---");
+		session.beginTransaction();
+
+		Scanner f = new Scanner(System.in);
+		Query query = session.createQuery( "DELETE FROM Responsavel a WHERE a.id = :id" );
+		System.out.print("Digite o ID do Responsável a ser Deletado:");
+		Long idfind = f.nextLong();
+		Responsavel responsavel = session.find(Responsavel.class, idfind);
+		responsavel.setAluno(null);
+		session.remove(responsavel);
+		session.getTransaction().commit();
+	}
+
 }

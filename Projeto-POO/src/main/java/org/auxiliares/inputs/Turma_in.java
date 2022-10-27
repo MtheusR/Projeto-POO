@@ -3,8 +3,9 @@ package org.auxiliares.inputs;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
-//import org.modelos.Professora;
+import org.hibernate.Session;
 import org.modelos.Turma;
 
 public class Turma_in {
@@ -21,19 +22,22 @@ public class Turma_in {
 		String horario = c.nextLine();
 		turma.setHorario(horario);
 
-		/*Scanner g = new Scanner(System.in);
-		System.out.print("ID da Turma que ela irá participar:");
-		Long idFindAdd = g.nextLong();
-		Responsavel responsavel = session.find(Responsavel.class, idFindAdd);
-		responsavel.addAluno(aluno);
-		
-		/*Scanner g = new Scanner(System.in);
-		System.out.print("ID da Professora: ");
-		Long idFindAdd = g.nextLong();
-		Professora professora = session.find(Professora.class, idFindAdd);
-		turma.addProfessora(professora);*/
-
-
         return turma;
+	}
+
+	public static void deleteTurma(Session session) {
+		System.out.println("\n--- DELETE ---");
+		session.beginTransaction();
+
+		Scanner f = new Scanner(System.in);
+		Query query = session.createQuery( "DELETE FROM Turma a WHERE a.id = :id");
+		System.out.print("Digite o ID de quem você deseja pesquisar:");
+		Long idfind = f.nextLong();
+		Turma turma = session.find(Turma.class, idfind);
+		// session.remove(turma);
+		turma.setAluno(null);
+		query.setParameter("id", idfind);
+		query.executeUpdate();
+		session.getTransaction().commit();
 	}
 }
