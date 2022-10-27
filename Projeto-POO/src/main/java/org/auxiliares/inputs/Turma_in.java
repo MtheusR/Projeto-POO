@@ -2,7 +2,6 @@ package org.auxiliares.inputs;
 
 import java.util.*;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
@@ -61,7 +60,7 @@ public class Turma_in {
 		int escolha = c.nextInt();
 
 		switch (escolha) {
-			case 1: //NOME
+			case 1: //DATA
 				session.beginTransaction();
 				Query query = session.createQuery("UPDATE Turma a SET a.data = :data WHERE a.id = :id");
 				
@@ -78,7 +77,7 @@ public class Turma_in {
 				session.getTransaction().commit();	
 				break;	
 
-			case 2: //NOME
+			case 2: //HORARIO
 				session.beginTransaction();
 				query = session.createQuery("UPDATE Turma a SET a.horario = :horario WHERE a.id = :id");
 				
@@ -86,7 +85,7 @@ public class Turma_in {
 				findId = a.nextLong();
 				query.setParameter("id", findId);
 
-				System.out.print("Digite o nome da data: ");
+				System.out.print("Digite o nome do horário: ");
 				String newhorario = b.nextLine();
 				query.setParameter("horario", newhorario);
 
