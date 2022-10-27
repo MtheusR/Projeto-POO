@@ -5,7 +5,6 @@ import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.PreRemove;
 
 
 @Entity
@@ -15,25 +14,32 @@ public class Frequencia{
     @GeneratedValue
     private Long id;
 
-    protected Calendar data;
-    protected Boolean presenca;
+    protected Date data;
+    protected String presenca;
 
     public Frequencia() {
 
     }
 
-    public Calendar getData(){
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public Date getData(){
         return data;
     }
-    public void setData(Calendar data){
+    public void setData(Date data){
         this.data = data;
     }
 
 
-    public Boolean getPresenca(){
+    public String getPresenca(){
         return presenca;
     }
-    public void setPresenca(Boolean presenca){
+    public void setPresenca(String presenca){
         this.presenca = presenca;
     }
 

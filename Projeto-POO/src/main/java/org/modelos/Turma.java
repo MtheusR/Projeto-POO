@@ -8,9 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Query;
-
-import org.hibernate.Session;
 
 @Entity
 public class Turma {
@@ -29,6 +26,13 @@ public class Turma {
     public Turma() {
     }
 
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+
     public String getData(){
         return data;
     }
@@ -37,7 +41,7 @@ public class Turma {
     }
 
     public String getHorario(){
-        return data;
+        return horario;
     }
     public void setHorario(String horario){
         this.horario = horario;

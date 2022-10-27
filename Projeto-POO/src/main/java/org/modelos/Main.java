@@ -80,7 +80,7 @@ public class Main {
 							daoF.create();
 							
 							break;
-						default:
+
 					}
 					break;
 	
@@ -102,6 +102,14 @@ public class Main {
 						case "P":
 							Professora_in.readProfessora(session);
 						break;
+
+						case "T":
+							Turma_in.readTurma(session);
+						break;
+
+						case "F":
+							Frequencia_in.readFrequencia(session);
+						break;
 					}
 					break;
 	
@@ -116,21 +124,20 @@ public class Main {
 								break;
 
 							case "R":
-								
+								Responsavel_in.updateResponsavel(session);
 								break;
 								
 							case "P":
-								
+								Professora_in.updateResponsavel(session);
 								break;
 
 							case "T":
-								
+								Turma_in.updateTurma(session);
 								break;
 
 							case "F":
-								
+								Frequencia_in.updateFrequencia(session);
 								break;
-							default:
 						}
 						break;
 	
@@ -159,20 +166,30 @@ public class Main {
 						case "F":
 							Frequencia_in.deleteFrequencia(session);
 							break;
-						default:
 					}
 					break;
 
 				case "F": //FIND - F
-						Scanner f = new Scanner(System.in);
-						System.out.print("Digite o ID de quem você deseja pesquisar:");
-						Long idfind = f.nextLong();
 
-						Responsavel responsavel = session.find(Responsavel.class, idfind);
-						System.out.println( "\n" + responsavel.getId() + " - " + responsavel.getNome() + " - " + responsavel.getCpf() + " - " + responsavel.getDataNascimento() + " - " + responsavel.getContato() + " - " + responsavel.getEndereco() + " - " + responsavel.getEndereco());
+					switch (key) {
+						case "A":
+							Aluno_in.findAluno(session);
+							break;
+
+						case "R":
+							Responsavel_in.findResponsavel(session);
+							break;
+							
+						case "P":
+							Professora_in.findProfessora(session);
+							break;
+
+						case "T":
+							Turma_in.findTurma(session);	
+							break;
+					}
 					break;
-					default:
-					break;
+				
 			}
 		}
 		while (!key.equals("0"));
@@ -188,7 +205,7 @@ public class Main {
 
 	public static void menuClasses(){
 		System.out.println("\n--- Cia do Saber Reforço Escolar ---");
-		System.out.println("\sA - luno\n R - esponsavel\n P - rofessora\n T - urma\n F - requencia");
+		System.out.println("\sT - urma\n P - rofessora\n R - esponsavel\n A - luno\n F - requencia");
 	}
 
 	public static void limpaConsole() throws InterruptedException, IOException{

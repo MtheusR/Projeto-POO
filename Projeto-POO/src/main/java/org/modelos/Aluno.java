@@ -8,9 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.PreRemove;
 
-import org.hibernate.property.access.spi.SetterFieldImpl;
 
 @Entity
 public class Aluno extends Pessoa {
@@ -24,7 +22,7 @@ public class Aluno extends Pessoa {
     protected String observacao;
 
     @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "aluno_frequencia")	
+    @JoinColumn(name = "aluno_frequencia", referencedColumnName = "id")	
     private List<Frequencia> frequencia = new ArrayList<Frequencia>();
 
     public Aluno() {
@@ -67,6 +65,7 @@ public class Aluno extends Pessoa {
     public void setFrequencia(List<Frequencia> aluno) {
         this.frequencia = aluno;
     }
+    
     public void addFrequencia(Frequencia a){
 		if (frequencia == null) {
 			frequencia = new ArrayList<Frequencia>();
